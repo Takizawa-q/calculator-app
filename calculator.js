@@ -22,7 +22,14 @@ function handleButtonClick(buttonText) {
     }
     
     switch (buttonText) {
-
+        case 'Backspace': {
+            if (placeholderText.length > 1) {
+                placeholder.placeholder = placeholderText.slice(0, -1);
+            } else {
+                placeholder.placeholder = 0;
+            }
+            break;
+        };
         case 'C':
         case 'AC': {
             placeholder.placeholder = 0;
@@ -111,7 +118,7 @@ document.addEventListener('keydown', (e) => {
         handleButtonClick(',');
     }
     else if (key === 'Backspace' || key === 'Delete') {
-        handleButtonClick('C');
+        handleButtonClick('Backspace');
     }
     else if (['c', 'с'].includes(key.toLowerCase())) {
         handleButtonClick('C');
